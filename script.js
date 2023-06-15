@@ -1,24 +1,16 @@
-//your JS code here. If required.
-document.addEventListener('DOMContentLoaded', function() {
-  let buttons = document.querySelectorAll('.btn');
-  let stopButton = document.querySelector('.stop');
-  let audio = new Audio();
-  let isPlaying = false;
+var audioElements = [];
 
-  buttons.forEach(function(button) {
-    button.addEventListener('click', function() {
-      let soundFile = button.textContent.trim() + '.mp3';
-      audio.src = 'sounds/' + soundFile;
-      audio.play();
-      isPlaying = true;
-    });
-  });
+function playSound(soundFile) {
+  var audio = new Audio('sounds/' + soundFile);
+  audio.play();
+  audioElements.push(audio);
+}
 
-  stopButton.addEventListener('click', function() {
-    if (isPlaying) {
-      audio.pause();
-      audio.currentTime = 0;
-      isPlaying = false;
-    }
-  });
-});
+function stopAllSounds() {
+  for (var i = 0; i < audioElements.length; i++) {
+    audioElements[i].pause();
+    audioElements[i].currentTime = 0;
+  }
+}
+
+
