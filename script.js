@@ -1,16 +1,29 @@
-var audioElements = [];
+var audioElements = document.getElementsByTagName('audio');
+var currentSound = null;
 
-function playSound(soundFile) {
-  var audio = new Audio('sounds/' + soundFile);
-  audio.play();
-  audioElements.push(audio);
-}
+function playSound(keyCode) {
+  if (currentSound) {
+    currentSound.pause();
+    currentSound.currentTime = 0;
+  }
 
-function stopAllSounds() {
   for (var i = 0; i < audioElements.length; i++) {
-    audioElements[i].pause();
-    audioElements[i].currentTime = 0;
+    var audio = audioElements[i];
+    if (audio.dataset.key === keyCode) {
+      audio.play();
+      currentSound = audio;
+      break;
+    }
   }
 }
+
+function stopSound() {
+  if (currentSound) {
+    currentSound.pause();
+    currentSound.currentTime = 0;
+    currentSound = null;
+  }
+}
+
 
 
