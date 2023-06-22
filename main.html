@@ -1,29 +1,17 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
 	<link rel="stylesheet" href="styles.css">
 </head>
-
-<body>
- <div id="buttons">
-    <button class="btn" onclick="playSound('65')">Sound 1</button>
-    <button class="btn" onclick="playSound('66')">Sound 2</button>
-    <button class="btn" onclick="playSound('67')">Sound 3</button>
-    <button class="btn" onclick="playSound('68')">Sound 4</button>
+ <body>
+  <h1>Audio Player</h1>
+  <div id="buttons">
+    <button class="btn" onclick="playSound('sound1.mp3')">Sound 1</button>
+    <button class="btn" onclick="playSound('sound2.mp3')">Sound 2</button>
+    <button class="btn" onclick="playSound('sound3.mp3')">Sound 3</button>
     <button class="stop" onclick="stopSound()">Stop</button>
   </div>
-
-  <audio data-key="65" src="sounds/cheer.mp3"></audio>
-  <audio data-key="66" src="sounds/cheering.mp3"></audio>
-  <audio data-key="67" src="sounds/claps.mp3"></audio>
-  <audio data-key="68" src="sounds/thunder.mp3"></audio>
-  <script src="script.js"></script>
-</body>
-</html>
-
-    <script type="text/javascript" src="./script.js">
+     <script type="text/javascript" src="./script.js">
 </script>
 
 </body>
